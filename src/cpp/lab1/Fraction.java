@@ -1,6 +1,6 @@
 package cpp.lab1;
 
-public class Fraction {
+public class Fraction implements IFraction{
     private double nominator;
     private double denominator;
 
@@ -8,19 +8,18 @@ public class Fraction {
         this.nominator = nominator;
         this.denominator = denominator;
     }
-
+    @Override
     public void multiply(double a){
         nominator += a;
     }
-
+    @Override
     public void divide(double a) {
         if(a == 0) System.out.println("Operation of division vy 0 is not allowed");
         else denominator += a;
     }
 
-    public void multiply(Fraction other) {
-        this.nominator += other.nominator;
-        this.denominator += other.denominator;
+    @Override
+    public String toString() {
+        return nominator + " / " + denominator + " = " + nominator/denominator;
     }
-
 }
