@@ -11,7 +11,7 @@ public class Lab1 {
         System.out.println("You entered: " + n);
         System.out.println("Your data is being processed now, please wait...");
 
-        IFraction result = Calculate.series(n);
+        String result = Calculate.series(n);
         System.out.println(result);
     }
 }
