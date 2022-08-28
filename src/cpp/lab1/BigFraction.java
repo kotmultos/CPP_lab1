@@ -12,27 +12,27 @@ public class BigFraction{
         this.nominator = new BigDecimal(nominator);
         this.denominator = new BigDecimal(denominator);
     }
+    private BigFraction(BigDecimal nominator, BigDecimal denominator) {
+        this.nominator = nominator;
+        this.denominator = denominator;
+    }
 
     public void multiply(BigFraction other) {
         this.nominator = this.nominator.multiply(other.nominator);
         this.denominator = this.denominator.multiply(other.denominator);
     }
 
-    public void add(BigFraction other){
-        System.out.println("add");
+    public BigFraction add(BigFraction other){
+        BigDecimal newDenominator = this.denominator.multiply(other.denominator);
+        BigDecimal newNominator =
+                this.nominator.multiply (newDenominator.divide(this.denominator, new MathContext(10))).add
+                (
+                    other.nominator.multiply (newDenominator.divide(other.denominator, new MathContext(10)))
+                );
+        return new BigFraction(newNominator, newDenominator);
     }
 
-//    public void multiply(double a) {
-//        nominator = nominator.multiply(new BigDecimal(a));
-//    }
-//
-//
-//    public void divide(double a) {
-//        denominator = denominator.multiply(new BigDecimal(a), new MathContext(3));
-//    }
-
-
     public String toString() {
-        return nominator + " / " + denominator + " = " + nominator.divide(denominator, new MathContext(3));
+        return nominator + " / " + denominator + " = " + nominator.divide(denominator, new MathContext(10));
     }
 }

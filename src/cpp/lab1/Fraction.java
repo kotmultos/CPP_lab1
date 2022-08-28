@@ -14,19 +14,12 @@ public class Fraction{
         this.denominator *= other.denominator;
     }
 
-    public void add(Fraction other){
-        System.out.println("add");
+    public Fraction add(Fraction other){
+        double newDenominator = this.denominator * other.denominator;
+        double newNominator = this.nominator * (newDenominator / this.denominator) +
+                             other.nominator * (newDenominator / other.denominator);
+        return new Fraction(newNominator, newDenominator);
     }
-
-//    public void multiply(double a){
-//        nominator += a;
-//    }
-//
-//    public void divide(double a) {
-//        if(a == 0) System.out.println("Operation of division vy 0 is not allowed");
-//        else denominator += a;
-//    }
-
 
     public String toString() {
         return nominator + " / " + denominator + " = " + nominator/denominator;

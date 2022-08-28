@@ -1,5 +1,7 @@
 package cpp.lab1;
 
+import java.math.BigDecimal;
+
 public class Calculate {
     public static String series(int n) {
         String res;
@@ -8,9 +10,8 @@ public class Calculate {
             BigFraction tmp;
 
             for (int i = 2; i <= n; i++) {
-                tmp = new BigFraction("1.0", String.valueOf(i));
-                System.out.println(tmp);
-                fraction.add(tmp);
+                tmp = new BigFraction("1.0", String.valueOf(Double.valueOf(i)));
+                fraction = fraction.add(tmp);
             }
             res = fraction.toString();
         }
@@ -19,8 +20,7 @@ public class Calculate {
             Fraction tmp;
             for (int i = 2; i <= n; i++) {
                 tmp = new Fraction(1, i);
-                System.out.println(tmp);
-                fraction.add(tmp);
+                fraction = fraction.add(tmp);
             }
             res = fraction.toString();
         }
